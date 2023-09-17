@@ -13,5 +13,7 @@ COPY . .
 
 RUN npx prisma generate
 
+RUN chmod 600 /usr/src/app/ssh-keys/my_host_ed25519_key
+
 # Development runtime command
-CMD [ "npm", "run", "dev" ]
+CMD [ "npx", "ts-node", "index.ts" ]

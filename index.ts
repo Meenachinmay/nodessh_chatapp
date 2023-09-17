@@ -5,9 +5,7 @@ import { handleShell } from "./chatManager"; // this function will be defined in
 export const initSshServer = () => {
   const server = new ssh2.Server(
     {
-      hostKeys: [
-        fs.readFileSync("/Users/meenachinmay/.ssh/my_host_ed25519_key"),
-      ],
+      hostKeys: [fs.readFileSync("./ssh-keys/my_host_ed25519_key")],
     },
     (client) => {
       client
@@ -28,3 +26,5 @@ export const initSshServer = () => {
     console.log("SSH server listening on port 4000");
   });
 };
+
+initSshServer();
